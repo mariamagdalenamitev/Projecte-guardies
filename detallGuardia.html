@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulari Posts</title>
+</head>
+<body>
+<h1 id="titolAccio"></h1>
+<div>
+
+</div>
+
+<script>
+    "use strict"
+    async function init() {
+
+        const urlParams = new URLSearchParams(window.location.search)
+        const nomParametre = urlParams.get('id');
+        document.getElementById('titolAccio').innerHTML = nomParametre
+    }
+
+    (()=>{
+        init()
+    })()
+</script>
+</body>
+</html>

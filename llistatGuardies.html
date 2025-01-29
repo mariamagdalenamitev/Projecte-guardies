@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>App de guàrdies</title>
+    <script src="sheetService.js"></script>
+
+</head>
+<body>
+    <h1>Llista de guàrdies</h1>
+    <div id="llistatResultats">
+    </div>
+
+    <script>
+        function printResultat(items){
+            let taula = ''
+            taula+='<table><tr><th>Títol</th><th>Accions</th></tr>';
+
+            items.forEach(item =>{
+                taula+=`<tr><td>${item}</td>`
+                taula+=`<td><a href=\"detallGuardia.html?id=${item}\">Veure</a></td>`
+            })
+            taula+=`</table>`
+
+            document.getElementById('llistatResultats').innerHTML=taula;
+        }
+
+      async function init(){
+         let dades = getDadesFila("Guardies!B2:K2");
+         //let dades = getDadesColumna("Guardies!B2:B13");
+         printResultat(dades)
+      }
+      (()=>{
+          init()
+      })()
+    </script>
+</body>
+</html>

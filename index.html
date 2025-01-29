@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <!--TODO (Opcionalment posar un nom a l'aplicació i posar un favicon -->
+    <title>Gestió de Guàrdies</title>
+    <script src="sheetService.js"></script>
+</head>
+<body>
+
+<!--TODO: Heu de personalitzar la pàgina d'inici -->
+    <h1>Gestió de guàrdies</h1>
+<!--TODO: Heu de personalitzar el botó -->
+<!--    <button onclick="initGoogle()">Authorize me</button>-->
+
+<div> <button onclick="initGoogle()"> ENTRAR </button>
+</div>
+<!-- No tocar les dues línies següents-->
+    <script src="https://accounts.google.com/gsi/client" async defer>
+    </script>
+<script>
+    function initGoogle() {
+        const client = google.accounts.oauth2.initTokenClient({
+            client_id: '111441058742-vgcv84if87m72p3up542kt0vdfu6kesh.apps.googleusercontent.com',
+            scope: 'https://www.googleapis.com/auth/spreadsheets.readonly', //TODO Cercar el de google
+            callback: (tokenResponse) => {
+                if (tokenResponse && tokenResponse.access_token) {
+                    console.log(tokenResponse, tokenResponse.access_token);
+                    localStorage.setItem('token', tokenResponse.access_token);
+                    window.location.href = 'menu.html'
+                }
+            },
+        });
+        client.requestAccessToken();
+    }
+
+    <h2 id="campCorreu"></h2>
+    <h3 id="campNom"></h3>
+    <h3 id="campLlinatges"></h3>
+</script>
+</body>
+</html>

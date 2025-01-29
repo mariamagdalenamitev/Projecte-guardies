@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú</title>
+  <script src="sheetService.js"></script>
+</head>
+<body>
+<div>
+    <button onclick="mostrarMapa()">Mapa</button>
+  <script>
+    async function init(){
+      let dades = getDadesColumna("Tasques!B1:B12");
+      printResultat(dades)
+    }
+    (()=>{
+      init()
+    })()
+  </script>
+</div>
+<div>
+  <button onclick="mostraCalendari">Calendari</button>
+</div>
+<div>
+  <button onclick="mostraExplicacio">Explicació</button>
+</div>
+<div>
+  <button onclick="mostraHorari">Horari</button>
+</div>
+</body>
+</html>
