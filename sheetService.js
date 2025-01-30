@@ -113,10 +113,3 @@ function getSheetData(full) {
 function mostrarMapa(){
     window.location.href = 'mostra_mapa.html'
 }
-
-/*
-let usuari = await getDadesUsuari();
-
-document.getElementById('campCorreu').innerHTML=usuari.emailAddresses[0].value
-document.getElementById('campNom').innerHTML=usuari.names[0].givenName;
-document.getElementById('campLlinatges').innerHTML=usuari.names[0].familyName;*/
