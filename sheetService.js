@@ -10,7 +10,7 @@
 // Funcions originals comentades
 
 async function getDadesFila(rang){
-    const peticioFetch = await fetch("https://sheets.googleapis.com/v4/spreadsheets/...",{
+    const peticioFetch = await fetch("https://sheets.googleapis.com/v4/spreadsheets/1XmS4EsZRTMp4AQ4MXUp5MqufLRUbtFl96EpGbw2-WGg/values/"+rang+"?majorDimension=COLUMNS",{
         method: 'GET',
         headers: {
             'Authorization': 'Bearer '+localStorage.getItem('token')
@@ -21,7 +21,7 @@ async function getDadesFila(rang){
 }
 
 async function getDadesColumna(rang){
-    const peticioFetch = await fetch("https://sheets.googleapis.com/v4/spreadsheets/...",{
+    const peticioFetch = await fetch("https://sheets.googleapis.com/v4/spreadsheets/1XmS4EsZRTMp4AQ4MXUp5MqufLRUbtFl96EpGbw2-WGg/values/"+rang,{
         method: 'GET',
         headers: {
             'Authorization': 'Bearer '+localStorage.getItem('token')
@@ -112,4 +112,16 @@ function getSheetData(full) {
 
 function mostrarMapa(){
     window.location.href = 'mostra_mapa.html'
+}
+
+function mostrarCalendari(){
+    window.location.href = 'calendari.html'
+}
+
+function mostrarExplicacio(){
+    window.location.href = 'explicacio.html'
+}
+
+function mostrarHorari(){
+    window.location.href = 'horari.html'
 }
