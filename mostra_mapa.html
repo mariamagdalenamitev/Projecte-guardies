@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mapa zones guàrdies</title>
   <script src="sheetService.js"></script>
-
 </head>
 
 <body>
@@ -15,25 +14,23 @@
 
 <div id="llistaResultatTasques"></div>
 
-
-
 <!-- Botons per manipular l'SVG -->
 <div id="controls">
   <div id="controls1">
     <button onclick="mostraZona('zona0','limegreen'); mostrarInstruccions('V0')">Mostra zona 0 verd</button>
-    <button onclick="mostraZona('zona1','limegreen')">Mostra zona 1 verd</button>
-    <button onclick="mostraZona('zona2','limegreen')">Mostra zona 2 verd</button>
-    <button onclick="mostraZona('zona3','limegreen')">Mostra zona 3 verd</button>
-    <button onclick="mostraZona('zona4','limegreen')">Mostra zona 4 verd</button>
-    <button onclick="mostraZona('zona5','limegreen')">Mostra zona 5 verd</button>
+    <button onclick="mostraZona('zona1','limegreen'); mostrarInstruccions('V1')">Mostra zona 1 verd</button>
+    <button onclick="mostraZona('zona2','limegreen'); mostrarInstruccions('V2')">Mostra zona 2 verd</button>
+    <button onclick="mostraZona('zona3','limegreen'); mostrarInstruccions('V3')">Mostra zona 3 verd</button>
+    <button onclick="mostraZona('zona4','limegreen'); mostrarInstruccions('V4')">Mostra zona 4 verd</button>
+    <button onclick="mostraZona('zona5','limegreen'); mostrarInstruccions('V5')">Mostra zona 5 verd</button>
   </div>
   <div id="controls2">
-    <button onclick="mostraZona('zona0','gold')">Mostra zona 0 groc</button>
-    <button onclick="mostraZona('zona1','gold')">Mostra zona 1 groc</button>
-    <button onclick="mostraZona('zona2','gold')">Mostra zona 2 groc</button>
-    <button onclick="mostraZona('zona3','gold')">Mostra zona 3 groc</button>
-    <button onclick="mostraZona('zona4','gold')">Mostra zona 4 groc</button>
-    <button onclick="mostraZona('zona5','gold')">Mostra zona 5 groc</button>
+    <button onclick="mostraZona('zona0','gold'); mostrarInstruccions('G0')">Mostra zona 0 groc</button>
+    <button onclick="mostraZona('zona1','gold'); mostrarInstruccions('G1')">Mostra zona 1 groc</button>
+    <button onclick="mostraZona('zona2','gold'); mostrarInstruccions('G2')">Mostra zona 2 groc</button>
+    <button onclick="mostraZona('zona3','gold'); mostrarInstruccions('G3')">Mostra zona 3 groc</button>
+    <button onclick="mostraZona('zona4','gold'); mostrarInstruccions('G4')">Mostra zona 4 groc</button>
+    <button onclick="mostraZona('zona5','gold'); mostrarInstruccions('G5')">Mostra zona 5 groc</button>
   </div>
 </div>
 
@@ -1552,15 +1549,78 @@
 
   async function mostrarInstruccions(zona){
     console.log(zona)
+    let dades
     if (zona==='V0'){
       console.log('Instruccions zona 0 verda');
-      let dades = await getDadesColumna("Tasques!B1:B1");
+      dades = await getDadesColumna("Tasques!B1:B1");
       console.log(dades)
       document.getElementById('llistaResultatTasques').innerHTML = dades
-
     }
     else if (zona==='V1'){
       console.log('Instruccions zona 1 verda')
+      dades = await getDadesColumna("Tasques!B3:B3");
+      console.log(dades)
+      document.getElementById('llistaResultatTasques').innerHTML = dades
+    }
+    else if (zona==='V2'){
+      console.log('Instruccions zona 2 verda')
+      dades = await getDadesColumna("Tasques!B5:B5");
+      console.log(dades)
+      document.getElementById('llistaResultatTasques').innerHTML = dades
+    }
+    else if (zona==='V3'){
+      console.log('Instruccions zona 3 verda')
+      dades = await getDadesColumna("Tasques!B7:B7");
+      console.log(dades)
+      document.getElementById('llistaResultatTasques').innerHTML = dades
+    }
+    else if (zona==='V4'){
+      console.log('Instruccions zona 4 verda')
+      dades = await getDadesColumna("Tasques!B9:B9");
+      console.log(dades)
+      document.getElementById('llistaResultatTasques').innerHTML = dades
+    }
+    else if (zona==='V5'){
+      console.log('Instruccions zona 5 verda')
+      dades = await getDadesColumna("Tasques!B11:B11");
+      console.log(dades)
+      document.getElementById('llistaResultatTasques').innerHTML = dades
+    }
+    else if (zona==='G0'){
+      console.log('Instruccions zona 0 groga')
+      dades = await getDadesColumna("Tasques!B2:B2");
+      console.log(dades)
+      document.getElementById('llistaResultatTasques').innerHTML = dades
+    }
+    else if (zona==='G1'){
+      console.log('Instruccions zona 1 groga')
+      dades = await getDadesColumna("Tasques!B4:B4");
+      console.log(dades)
+      document.getElementById('llistaResultatTasques').innerHTML = dades
+    }
+    else if (zona==='G2'){
+      console.log('Instruccions zona 2 groga')
+      dades = await getDadesColumna("Tasques!B6:B6");
+      console.log(dades)
+      document.getElementById('llistaResultatTasques').innerHTML = dades
+    }
+    else if (zona==='G3'){
+      console.log('Instruccions zona 3 groga')
+      dades = await getDadesColumna("Tasques!B8:B8");
+      console.log(dades)
+      document.getElementById('llistaResultatTasques').innerHTML = dades
+    }
+    else if (zona==='G4'){
+      console.log('Instruccions zona 4 groga')
+      dades = await getDadesColumna("Tasques!B10:B10");
+      console.log(dades)
+      document.getElementById('llistaResultatTasques').innerHTML = dades
+    }
+    else if (zona==='G5'){
+      console.log('Instruccions zona 5 groga')
+      dades = await getDadesColumna("Tasques!B12:B12");
+      console.log(dades)
+      document.getElementById('llistaResultatTasques').innerHTML = dades
     }
   }
 

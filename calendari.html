@@ -3,8 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Calendari guàrdies</title>
+    <script src="sheetService.js"></script>
 </head>
 <body>
+    <h1>Calendari guàrdies</h1>
+    <div id="llistatCalendari"></div>
 
+    <script>
+    function printCalendari(items){
+        let taula = ''
+        taula+='<table><tr><th>Títol</th><th>Accions</th></tr>';
+        items.forEach(item =>{
+            taula+=`<tr><td>${item}</td>`
+            taula+=`<td><button onclick="mostrarPati()"><img src="icons8-ver-50.png"></button></td>`
+            //Com pos que no me surti el mateix nom per tot?
+        })
+        taula+=`</table>`
+
+        document.getElementById('llistatCalendari').innerHTML=taula;
+    }
+    //TODO Arreglar per a que quan pitji el botó me vagi al document
+
+    async function mostrarPati(pati){
+        console.log(pati)
+        let dades = await getDadesFila("Guardies2!B1:K1");
+        //let dades = await getDadesColumna("Guardies2!B2:B13");
+        printCalendari(dades)
+    }
+    (()=>{
+        mostrarPati()
+    })()
+
+    </script>
 </body>
 </html>
+
+<!--Vull que me surti de sa fila B1 a K1 al pitjar al botó, però que quan el pitji me surti de B2 a B13--¡>
