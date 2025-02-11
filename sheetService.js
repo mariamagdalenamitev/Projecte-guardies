@@ -128,3 +128,6 @@ function mostrarHorari(){
 function tancarSessio(){
     window.location.href = 'index.html'
 }
+function tornarMenu(){
+    window.location.href = 'menu.html'
+}
