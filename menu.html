@@ -2,18 +2,21 @@
 <html lang="ca">
 <head>
   <meta charset="UTF-8">
+  <!--Revisar css menu i html per mirar q se me posi el title també-->
   <title>Menú</title>
+  <link rel="stylesheet" type="text/css" href="menu.css">
   <script src="sheetService.js"></script>
 </head>
 <body>
+<div class="access-menu">
 <!--Cercar enllaç i codi NOTION-->
-<div><button onClick="mostrarMapa()"><img src="icons8-mapa-50.png"></button></div>
-<div><button onclick="mostrarCalendari()"><img src="icons8-calendario-de-rasgar-las-hojas-50.png"></button></div>
-<div><button onclick="mostrarExplicacio()"><img src="icons8-lista-corta-50.png"></button></div>
-<div><button onclick="mostrarHorari()"><img src="icons8-no-comprobado-50.png"></button></div>
+<div class="icon"><button onClick="mostrarMapa()"><img src="icons8-mapa-50.png"></button></div>
+<div class="icon"><button onclick="mostrarCalendari()"><img src="icons8-calendario-de-rasgar-las-hojas-50.png"></button></div>
+<div class="icon"><button onclick="mostrarExplicacio()"><img src="icons8-lista-corta-50.png"></button></div>
+<div class="icon"><button onclick="mostrarHorari()"><img src="icons8-no-comprobado-50.png"></button></div>
 
-  <div><button onclick=tancarSessio()><img src="icons8-cerrar-sesión-30.png"></button></div>
-
+  <div class="icon"><button onclick=tancarSessio()><img src="icons8-cerrar-sesión-30.png"></button></div>
+</div>
   <script>
 
     function printTasques(items){

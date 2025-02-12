@@ -1,0 +1,70 @@
+/* Estilos generales para el cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+/* Contenedor principal */
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* Texto centrado */
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Estilo para el menú de acceso */
+.access-menu {
+    display: flex;
+    flex-direction: column;  /* Asegura que los iconos estén en vertical */
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.access-menu .icon {
+    width: 40px;
+    height: 40px;
+    color: #00aaff;
+    cursor: pointer;
+}
+
+.access-menu .icon:hover {
+    color: #0077cc;
+    transform: scale(1.1);
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+    .card {
+        width: 200px;
+        height: 400px;
+        padding: 15px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .access-menu .icon {
+        width: 30px;
+        height: 30px;
+    }
+}
