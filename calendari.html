@@ -5,12 +5,11 @@
     <title>Calendari guàrdies</title>
     <link rel="stylesheet"  href="menu.css">
     <script src="sheetService.js"></script>
+    <script src="https://kit.fontawesome.com/f52af23a03.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="guardies.css">
 </head>
 <body>
     <h1>Calendari guàrdies</h1>
-
-    <div><button onclick=tornarMenu()><img src="icons8-menú-principal-50.png"></button></div>
-
     <div id="llistatCalendari"></div>
 
     <script>
@@ -19,7 +18,7 @@
         taula+='<table><tr><th>Títol</th><th>Accions</th></tr>';
         items.forEach(item =>{
             taula+=`<tr><td>${item}</td>`
-            taula+=`<td><button onclick="mostrarPati()"><img src="icons8-ver-50.png"></button></td>`
+            taula+=`<td><button onclick="mostrarPati()"><i class="fa-regular fa-eye" style="color: #60c36c;"></i></button></td>`
             //Com pos que no me surti el mateix nom per tot?
         })
         taula+=`</table>`

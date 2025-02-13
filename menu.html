@@ -6,16 +6,29 @@
   <title>Menú</title>
   <link rel="stylesheet" type="text/css" href="menu.css">
   <script src="sheetService.js"></script>
+  <script src="https://kit.fontawesome.com/f52af23a03.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="guardies.css">
 </head>
 <body>
 <div class="access-menu">
 <!--Cercar enllaç i codi NOTION-->
-<div class="icon"><button onClick="mostrarMapa()"><img src="icons8-mapa-50.png"></button></div>
-<div class="icon"><button onclick="mostrarCalendari()"><img src="icons8-calendario-de-rasgar-las-hojas-50.png"></button></div>
-<div class="icon"><button onclick="mostrarExplicacio()"><img src="icons8-lista-corta-50.png"></button></div>
-<div class="icon"><button onclick="mostrarHorari()"><img src="icons8-no-comprobado-50.png"></button></div>
+<div class="icon"><button onClick="mostrarMapa()">
+    Mapa
+  <i class="fa-regular fa-map" style="color: #60c36c;"></i></button></div>
 
-  <div class="icon"><button onclick=tancarSessio()><img src="icons8-cerrar-sesión-30.png"></button></div>
+<div class="icon"><button onclick="mostrarCalendari()">
+    Calendari
+  <i class="fa-solid fa-calendar-days" style="color: #60c36c;"></i></button></div>
+
+  <div class="icon"><button onclick="mostrarHorari()">
+    Horari
+    <i class="fa-solid fa-calendar-day" style="color: #60c36c;"></i></button></div>
+
+<div class="icon"><button onclick="mostrarExplicacio()">
+    Explicacions
+  <i class="fa-solid fa-bars" style="color: #60c36c;"></i></button></div>
+
+  <div class="icon"><button onclick=tancarSessio()><i class="fa-solid fa-arrow-right-from-bracket" style="color: #60c36c;"></i></button></div>
 </div>
   <script>
 
