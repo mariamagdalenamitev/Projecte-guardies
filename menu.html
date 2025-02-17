@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="guardies.css">
 </head>
 <body>
+<h1>A que vols accedir?</h1>
+
 <div class="access-menu">
 <!--Cercar enllaç i codi NOTION-->
 <div class="icon"><button onClick="mostrarMapa()">
@@ -24,7 +26,7 @@
     Horari
     <i class="fa-solid fa-calendar-day" style="color: #60c36c;"></i></button></div>
 
-<div class="icon"><button onclick="mostrarExplicacio()">
+<div class="icon"><button onclick="mostrarExplicacio(); mostrarExplicacions(explicacio)">
     Explicacions
   <i class="fa-solid fa-bars" style="color: #60c36c;"></i></button></div>
 
@@ -35,13 +37,12 @@
     function printTasques(items){
       let taula = ''
       taula+='<table><tr><th>Grup</th><th>Tasca</th></tr>';
-
+//Me dona error en la lína 39 i no entenc pq ja que abans no m'ho feia
       items.forEach(item =>{
-        taula+=`<tr><td>${item}</td>`
+        taula+=`<tr><td>${item}</td></tr>`
         /* taula+=`<td><a href=\"detallGuardia.html?id=${item}\">Veure</a></td>` */
       })
       taula+=`</table>`
-
       document.getElementById('llistatResultatTasques').innerHTML=taula;
     }
 
