@@ -128,3 +128,7 @@ function mostrarHorari(){
 function tancarSessio(){
     window.location.href = 'index.html'
 }
+function guardia(nom){
+    console.log(nom)
+    window.location.href = 'calendariGuardies.html'
+}

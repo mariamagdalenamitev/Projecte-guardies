@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendari guàrdies</title>
+    <link rel="stylesheet" type="text/css" href="menu.css">
+    <script src="sheetService.js"></script>
+    <script src="https://kit.fontawesome.com/f52af23a03.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="guardies.css">
+</head>
+<body>
+<div id="llistatGuardies"> </div>
+
+<script>
+
+    async function mostrarGuardia(){
+        let dades = await getDadesFila("Guardies2!B1:K13");
+        //let dades = await getDadesColumna("Guardies2!B2:B13");
+        console.log(dades)
+        document.getElementById("llistatGuardies").innerHTML = dades
+   }
+    (()=>{
+        mostrarGuardia()
+    })()
+</script>
+
+</body>
+</html>
