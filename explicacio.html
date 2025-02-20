@@ -15,29 +15,18 @@
     <script>
 // Demanar que m'ho expliqui pq no me funciona i on ho he d'enllaçar; al bptó?
     async function mostrarExplicacions(explicacio){
-    console.log(explicacio)
-    let dades
-    console.log('Possibles dubtes');
-    dades = await getDadesColumna("dubtes!A1:A5");
-    console.log(dades)
-    document.getElementById('llistaResultatExplicacions').innerHTML = dades
+        console.log(explicacio)
+        let dades
+        console.log('Possibles dubtes');
+        dades = await getDadesColumna("dubtes!A1:A5");
+        console.log(dades)
+        document.getElementById('llistaResultatExplicacions').innerHTML = dades
     }
-    </script>
-    <!--
-        <div>
-            <h3>COM FUNCIONA EL COLOR VERD?</h3>
-        </div>
-        <div>
-            <h3>COM FUNCIONA EL COLOR GROC?</h3>
-        </div>
-        <div>
-            <h3>COM FUNCIONEA CADA ZONA?</h3>
-        </div>
-        <div>
-            <h3>EN QUE CONSISTEIXEN LES TASQUES A FER?</h3>
-        </div>
-        <div>
-            <h3>A QUE ES REFEREIXEN AQUESTS HORARIS?</h3>
-        </div>-->
+
+    (() => {
+        init()
+        mostrarExplicacions()
+    })()
+</script >
 </body>
 </html>

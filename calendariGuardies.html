@@ -13,13 +13,32 @@
 
 <script>
 
+    let pati
+
+    async function init(){
+        const urlParams = new URLSearchParams(window.location.search)
+        pati = urlParams.get('pati')
+        console.log('Pati: '+ pati)
+    }
+
     async function mostrarGuardia(){
         let dades = await getDadesFila("Guardies2!B1:K13");
         //let dades = await getDadesColumna("Guardies2!B2:B13");
-        console.log(dades)
-        document.getElementById("llistatGuardies").innerHTML = dades
+        //Crear taula amb for each
+        document.getElementById("llistatGuardies").innerHTML = dades[pati]
+
+        let taula = ' '
+//Anar provant de fer sa taula i canviar per que me funcioni.
+        items.forEach(item =>{
+            taula+=`<tr><td>${item}</td>`
+            taula+=`<td><a href=\"detallGuardia.html?id=${item}\">Veure</a></td>`
+        })
+        taula+=`</table>`
+
+        document.getElementById('llistatResultats').innerHTML=taula;
    }
     (()=>{
+        init()
         mostrarGuardia()
     })()
 </script>

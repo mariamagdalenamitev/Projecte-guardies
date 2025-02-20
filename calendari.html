@@ -16,9 +16,9 @@
     function printCalendari(items){
         let taula = ''
         taula+='<table><tr><th>Títol</th><th>Accions</th></tr>';
-        items.forEach(item =>{
+        items.forEach((item,index) =>{
             taula+=`<tr><td>${item}</td>`
-            taula+=`<td><button onclick="guardia(${item})">Veure <i class="fa-regular fa-eye" style="color: #60c36c;"></i></button></td>`
+            taula+=`<td><button onclick=guardia(${index})>Veure <i class="fa-regular fa-eye" style="color: #60c36c;"></i></button></td>`
             //Com pos que no me surti el mateix nom per tot?
         })
         taula+=`</table>`
