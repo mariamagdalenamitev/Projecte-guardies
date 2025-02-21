@@ -1,0 +1,171 @@
+<html>
+<head>
+<title>sheetService.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #cf8e6d;}
+.s3 { color: #bcbec4;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+.s6 { color: #42c3d4;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+sheetService.js</font>
+</center></td></tr></table>
+<pre><span class="s0">/* 
+    No tocar 
+    Les següents línies es connecten amb google per comprovar que l'usuari és correcte i quina informació de la seva sessió 
+    es descarregarà. Una vegada autenticat correctament es descarrega un token que es guarda a 
+    la sessió del navegador (localStorage). Després per fer cada consulta s'enviarà aquest token per comprovar que l'usuari 
+    encara està autenticat correctament. 
+ */</span>
+
+
+<span class="s0">// Funcions originals comentades</span>
+
+<span class="s1">async </span><span class="s2">function </span><span class="s1">getDadesFila</span><span class="s3">(</span><span class="s1">rang</span><span class="s3">){</span>
+    <span class="s2">const </span><span class="s1">peticioFetch </span><span class="s3">= </span><span class="s2">await </span><span class="s1">fetch</span><span class="s3">(</span><span class="s4">&quot;https://sheets.googleapis.com/v4/spreadsheets/1XmS4EsZRTMp4AQ4MXUp5MqufLRUbtFl96EpGbw2-WGg/values/&quot;</span><span class="s3">+</span><span class="s1">rang</span><span class="s3">+</span><span class="s4">&quot;?majorDimension=COLUMNS&quot;</span><span class="s3">,{</span>
+        <span class="s1">method</span><span class="s3">: </span><span class="s4">'GET'</span><span class="s3">,</span>
+        <span class="s1">headers</span><span class="s3">: {</span>
+            <span class="s4">'Authorization'</span><span class="s3">: </span><span class="s4">'Bearer '</span><span class="s3">+</span><span class="s1">localStorage</span><span class="s3">.</span><span class="s1">getItem</span><span class="s3">(</span><span class="s4">'token'</span><span class="s3">)</span>
+        <span class="s3">}</span>
+    <span class="s3">});</span>
+    <span class="s2">const </span><span class="s1">resultat </span><span class="s3">= </span><span class="s2">await </span><span class="s1">peticioFetch</span><span class="s3">.</span><span class="s1">json</span><span class="s3">();</span>
+    <span class="s2">return </span><span class="s1">resultat</span><span class="s3">.</span><span class="s1">values</span><span class="s3">;</span>
+<span class="s3">}</span>
+
+<span class="s1">async </span><span class="s2">function </span><span class="s1">getDadesColumna</span><span class="s3">(</span><span class="s1">rang</span><span class="s3">){</span>
+    <span class="s2">const </span><span class="s1">peticioFetch </span><span class="s3">= </span><span class="s2">await </span><span class="s1">fetch</span><span class="s3">(</span><span class="s4">&quot;https://sheets.googleapis.com/v4/spreadsheets/1XmS4EsZRTMp4AQ4MXUp5MqufLRUbtFl96EpGbw2-WGg/values/&quot;</span><span class="s3">+</span><span class="s1">rang</span><span class="s3">,{</span>
+        <span class="s1">method</span><span class="s3">: </span><span class="s4">'GET'</span><span class="s3">,</span>
+        <span class="s1">headers</span><span class="s3">: {</span>
+            <span class="s4">'Authorization'</span><span class="s3">: </span><span class="s4">'Bearer '</span><span class="s3">+</span><span class="s1">localStorage</span><span class="s3">.</span><span class="s1">getItem</span><span class="s3">(</span><span class="s4">'token'</span><span class="s3">)</span>
+        <span class="s3">}</span>
+    <span class="s3">});</span>
+    <span class="s2">const </span><span class="s1">resultat </span><span class="s3">= </span><span class="s2">await </span><span class="s1">peticioFetch</span><span class="s3">.</span><span class="s1">json</span><span class="s3">();</span>
+    <span class="s2">return </span><span class="s1">resultat</span><span class="s3">.</span><span class="s1">values</span><span class="s3">;</span>
+<span class="s3">}</span>
+
+<span class="s0">/*FI no tocar*/</span>
+
+<span class="s0">// Matriu per simular les dades del full de guàrdies</span>
+<span class="s2">const </span><span class="s1">guardies </span><span class="s3">= [</span>
+    <span class="s3">[</span><span class="s4">&quot;Tasca&quot;</span><span class="s3">, </span><span class="s4">&quot;Dilluns 1r Pati&quot;</span><span class="s3">, </span><span class="s4">&quot;Dilluns 2n pati&quot;</span><span class="s3">, </span><span class="s4">&quot;Dimarts 1r Pati&quot;</span><span class="s3">, </span><span class="s4">&quot;Dimarts 2n Pati&quot;</span><span class="s3">, </span><span class="s4">&quot;Dimecres 1r Pati&quot;</span><span class="s3">, </span><span class="s4">&quot;Dimecres 2n Pati&quot;</span><span class="s3">, </span><span class="s4">&quot;Dijous 1r Pati&quot;</span><span class="s3">, </span><span class="s4">&quot;Dijous 2n Pati&quot;</span><span class="s3">, </span><span class="s4">&quot;Divendres 1r Pati&quot;</span><span class="s3">, </span><span class="s4">&quot;Divendres 2n Pati&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Verd 0&quot;</span><span class="s3">, </span><span class="s4">&quot;JR&quot;</span><span class="s3">, </span><span class="s4">&quot;JPM&quot;</span><span class="s3">, </span><span class="s4">&quot;MB&quot;</span><span class="s3">, </span><span class="s4">&quot;FD&quot;</span><span class="s3">, </span><span class="s4">&quot;JR&quot;</span><span class="s3">, </span><span class="s4">&quot;JPM&quot;</span><span class="s3">, </span><span class="s4">&quot;MB&quot;</span><span class="s3">, </span><span class="s4">&quot;FD&quot;</span><span class="s3">, </span><span class="s4">&quot;MB&quot;</span><span class="s3">, </span><span class="s4">&quot;FD&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Groc 0&quot;</span><span class="s3">, </span><span class="s4">&quot;XM&quot;</span><span class="s3">, </span><span class="s4">&quot;BV&quot;</span><span class="s3">, </span><span class="s4">&quot;BD&quot;</span><span class="s3">, </span><span class="s4">&quot;HT&quot;</span><span class="s3">, </span><span class="s4">&quot;XM&quot;</span><span class="s3">, </span><span class="s4">&quot;BV&quot;</span><span class="s3">, </span><span class="s4">&quot;BD&quot;</span><span class="s3">, </span><span class="s4">&quot;HT&quot;</span><span class="s3">, </span><span class="s4">&quot;BD&quot;</span><span class="s3">, </span><span class="s4">&quot;HT&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Verd 1&quot;</span><span class="s3">, </span><span class="s4">&quot;PR&quot;</span><span class="s3">, </span><span class="s4">&quot;BB&quot;</span><span class="s3">, </span><span class="s4">&quot;FF&quot;</span><span class="s3">, </span><span class="s4">&quot;XM&quot;</span><span class="s3">, </span><span class="s4">&quot;PR&quot;</span><span class="s3">, </span><span class="s4">&quot;BB&quot;</span><span class="s3">, </span><span class="s4">&quot;FF&quot;</span><span class="s3">, </span><span class="s4">&quot;XM&quot;</span><span class="s3">, </span><span class="s4">&quot;FF&quot;</span><span class="s3">, </span><span class="s4">&quot;XM&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Groc 1&quot;</span><span class="s3">, </span><span class="s4">&quot;NM&quot;</span><span class="s3">, </span><span class="s4">&quot;MM&quot;</span><span class="s3">, </span><span class="s4">&quot;TR&quot;</span><span class="s3">, </span><span class="s4">&quot;NB&quot;</span><span class="s3">, </span><span class="s4">&quot;NM&quot;</span><span class="s3">, </span><span class="s4">&quot;MM&quot;</span><span class="s3">, </span><span class="s4">&quot;TR&quot;</span><span class="s3">, </span><span class="s4">&quot;NB&quot;</span><span class="s3">, </span><span class="s4">&quot;TR&quot;</span><span class="s3">, </span><span class="s4">&quot;NB&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Verd 2&quot;</span><span class="s3">, </span><span class="s4">&quot;AB&quot;</span><span class="s3">, </span><span class="s4">&quot;LG&quot;</span><span class="s3">, </span><span class="s4">&quot;JR&quot;</span><span class="s3">, </span><span class="s4">&quot;FD&quot;</span><span class="s3">, </span><span class="s4">&quot;AB&quot;</span><span class="s3">, </span><span class="s4">&quot;LG&quot;</span><span class="s3">, </span><span class="s4">&quot;JR&quot;</span><span class="s3">, </span><span class="s4">&quot;FD&quot;</span><span class="s3">, </span><span class="s4">&quot;JR&quot;</span><span class="s3">, </span><span class="s4">&quot;FD&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Groc 2&quot;</span><span class="s3">, </span><span class="s4">&quot;SC&quot;</span><span class="s3">, </span><span class="s4">&quot;VV&quot;</span><span class="s3">, </span><span class="s4">&quot;BF&quot;</span><span class="s3">, </span><span class="s4">&quot;TR&quot;</span><span class="s3">, </span><span class="s4">&quot;SC&quot;</span><span class="s3">, </span><span class="s4">&quot;VV&quot;</span><span class="s3">, </span><span class="s4">&quot;BF&quot;</span><span class="s3">, </span><span class="s4">&quot;TR&quot;</span><span class="s3">, </span><span class="s4">&quot;BF&quot;</span><span class="s3">, </span><span class="s4">&quot;TR&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Verd 3&quot;</span><span class="s3">, </span><span class="s4">&quot;ML&quot;</span><span class="s3">, </span><span class="s4">&quot;RM&quot;</span><span class="s3">, </span><span class="s4">&quot;MM&quot;</span><span class="s3">, </span><span class="s4">&quot;EE&quot;</span><span class="s3">, </span><span class="s4">&quot;ML&quot;</span><span class="s3">, </span><span class="s4">&quot;RM&quot;</span><span class="s3">, </span><span class="s4">&quot;MM&quot;</span><span class="s3">, </span><span class="s4">&quot;EE&quot;</span><span class="s3">, </span><span class="s4">&quot;MM&quot;</span><span class="s3">, </span><span class="s4">&quot;EE&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Groc 3&quot;</span><span class="s3">, </span><span class="s4">&quot;JJ&quot;</span><span class="s3">, </span><span class="s4">&quot;IA&quot;</span><span class="s3">, </span><span class="s4">&quot;MP&quot;</span><span class="s3">, </span><span class="s4">&quot;JR&quot;</span><span class="s3">, </span><span class="s4">&quot;JJ&quot;</span><span class="s3">, </span><span class="s4">&quot;IA&quot;</span><span class="s3">, </span><span class="s4">&quot;MP&quot;</span><span class="s3">, </span><span class="s4">&quot;JR&quot;</span><span class="s3">, </span><span class="s4">&quot;MP&quot;</span><span class="s3">, </span><span class="s4">&quot;JR&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Verd 4&quot;</span><span class="s3">, </span><span class="s4">&quot;TR&quot;</span><span class="s3">, </span><span class="s4">&quot;MP&quot;</span><span class="s3">, </span><span class="s4">&quot;RT&quot;</span><span class="s3">, </span><span class="s4">&quot;MB&quot;</span><span class="s3">, </span><span class="s4">&quot;TR&quot;</span><span class="s3">, </span><span class="s4">&quot;MP&quot;</span><span class="s3">, </span><span class="s4">&quot;RT&quot;</span><span class="s3">, </span><span class="s4">&quot;MB&quot;</span><span class="s3">, </span><span class="s4">&quot;RT&quot;</span><span class="s3">, </span><span class="s4">&quot;MB&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Groc 4&quot;</span><span class="s3">, </span><span class="s4">&quot;OS&quot;</span><span class="s3">, </span><span class="s4">&quot;AR&quot;</span><span class="s3">, </span><span class="s4">&quot;EE&quot;</span><span class="s3">, </span><span class="s4">&quot;NM&quot;</span><span class="s3">, </span><span class="s4">&quot;OS&quot;</span><span class="s3">, </span><span class="s4">&quot;AR&quot;</span><span class="s3">, </span><span class="s4">&quot;EE&quot;</span><span class="s3">, </span><span class="s4">&quot;NM&quot;</span><span class="s3">, </span><span class="s4">&quot;EE&quot;</span><span class="s3">, </span><span class="s4">&quot;NM&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Verd 5&quot;</span><span class="s3">, </span><span class="s4">&quot;MV&quot;</span><span class="s3">, </span><span class="s4">&quot;MC&quot;</span><span class="s3">, </span><span class="s4">&quot;AS&quot;</span><span class="s3">, </span><span class="s4">&quot;MV&quot;</span><span class="s3">, </span><span class="s4">&quot;MV&quot;</span><span class="s3">, </span><span class="s4">&quot;MC&quot;</span><span class="s3">, </span><span class="s4">&quot;AS&quot;</span><span class="s3">, </span><span class="s4">&quot;MV&quot;</span><span class="s3">, </span><span class="s4">&quot;AS&quot;</span><span class="s3">, </span><span class="s4">&quot;MV&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Groc 5&quot;</span><span class="s3">, </span><span class="s4">&quot;MM&quot;</span><span class="s3">, </span><span class="s4">&quot;BF&quot;</span><span class="s3">, </span><span class="s4">&quot;AB&quot;</span><span class="s3">, </span><span class="s4">&quot;VV&quot;</span><span class="s3">, </span><span class="s4">&quot;MM&quot;</span><span class="s3">, </span><span class="s4">&quot;BF&quot;</span><span class="s3">, </span><span class="s4">&quot;AB&quot;</span><span class="s3">, </span><span class="s4">&quot;VV&quot;</span><span class="s3">, </span><span class="s4">&quot;AB&quot;</span><span class="s3">, </span><span class="s4">&quot;VV&quot;</span><span class="s3">]</span>
+<span class="s3">];</span>
+
+<span class="s0">// Matriu per simular les dades del full de tasques</span>
+<span class="s2">const </span><span class="s1">tasques </span><span class="s3">= [</span>
+    <span class="s3">[</span><span class="s4">&quot;Tasca&quot;</span><span class="s3">, </span><span class="s4">&quot;Descripció&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Verd 0&quot;</span><span class="s3">, </span><span class="s4">&quot;Estar a la Sala de professorat o entrada per tal d’atendre a l’alumnat que ho necessiti.&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Groc 0&quot;</span><span class="s3">, </span><span class="s4">&quot;Suplir l’absència que hi pugui haver de qualque membre de l’equip de guàrdia. Si no hi ha absències ha de fer guàrdia activa per tot el centre. En tocar el timbre, ha de fer que l’alumnat entri a les aules. La guàrdia acaba quan tot l’alumnat és a les aules.&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Verd 1&quot;</span><span class="s3">, </span><span class="s4">&quot;Estar a la planta baixa. Comprovar que a les aules no hi hagi alumnes i tancar les aules. Si hi ha alumnes sempre han d’estar acompanyats del professor que els ha donat permís. Si algun alumne necessita anar a l’aula a cercar qualque cosa que sigui necessària, el professor de guàrdia li obrirà la porta. Quan faltin 3 minuts per tocar el timbre es començaran a obrir les aules.&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Groc 1&quot;</span><span class="s3">, </span><span class="s4">&quot;Estar al 1r pis i davant la biblioteca i farà davallar a l’alumnat cap a baix. Comprovar que a les aules no hi hagi alumnes i tancar les aules. Si hi ha alumnes sempre han d’estar acompanyats del professor que els ha donat permís. Si algun alumne necessita anar a l’aula a cercar qualque cosa que sigui necessària, el professor de guàrdia li obrirà la porta. Quan faltin 3 minuts per tocar el timbre es començaran a obrir les aules. En tocar el timbre, ha de fer que l’alumnat entri a les aules. La guàrdia acaba quan tot l’alumnat és a les aules.&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Verd 2&quot;</span><span class="s3">, </span><span class="s4">&quot;Estar a la barrera de l’entrada 5 min abans de tocar el timbre i vigilar que només surti a la part exterior l’alumnat de batxillerat i de CFGB amb un carnet per identificar-se.&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Groc 2&quot;</span><span class="s3">, </span><span class="s4">&quot;Estar davant l’entrada petita del gimnàs. Vigilar els abeuradors i la fila del bar per evitar conflictes. En tocar el timbre, ha de fer que l’alumnat entri a les aules. La guàrdia acaba quan tot l’alumnat és a les aules.&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Verd 3&quot;</span><span class="s3">, </span><span class="s4">&quot;Obrir els banys de les nines 3 min abans de tocar el timbre. Estar devora l’entrada dels banys controlant que l’alumnat estigui al bany el temps just i necessari i vigilant que es faci un bon ús de les instal·lacions i evitant l’excés d’aforament dins el bany (màxim 7). El bany ha de quedar tancat quan finalitzi l’esplai. La clau del bany és una clau d’aula.&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Groc 3&quot;</span><span class="s3">, </span><span class="s4">&quot;Vigilar la zona de la pista de davant els banys de les nines. En tocar el timbre, ha de fer que l’alumnat entri a les aules. La guàrdia acaba quan tot l’alumnat és a les aules.&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Verd 3&quot;</span><span class="s3">, </span><span class="s4">&quot;Obrir els banys dels nins 3 min abans de tocar el timbre. Estar devora l’entrada dels banys controlant que l’alumnat estigui al bany el temps just i necessari i vigilant que es faci un bon ús de les instal·lacions i evitant l’excés d’aforament dins el bany (màxim 7). El bany ha de quedar tancat quan finalitzi l’esplai. La clau del bany és una clau d’aula.&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Groc 3&quot;</span><span class="s3">, </span><span class="s4">&quot;Vigilar la zona de la pista de davant els banys dels nins. En tocar el timbre, ha de fer que l’alumnat entri a les aules. La guàrdia acaba quan tot l’alumnat és a les aules.&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Verd 5&quot;</span><span class="s3">, </span><span class="s4">&quot;Anar a consergeria a cercar les claus de les aules exteriors. Anar als banys exteriors per controlar que l’alumnat estigui al bany el temps just i necessari i vigilant que es faci un bon ús de les instal·lacions.&quot;</span><span class="s3">],</span>
+    <span class="s3">[</span><span class="s4">&quot;Groc 5&quot;</span><span class="s3">, </span><span class="s4">&quot;Vigilar que no hi hagi alumnes per darrera les aules prefabricades i fer la volta per comprovar que totes les aules exteriors estiguin tancades. Quan faltin 3 minuts per tocar el timbre es començaran a obrir les aules. En tocar el timbre, ha de fer que l’alumnat entri a les aules i retornar les claus de les aules exteriors a consergeria. La guàrdia acaba quan tot l’alumnat és a les aules.&quot;</span><span class="s3">]</span>
+<span class="s3">];</span>
+
+<span class="s0">// Funcions auxiliars per analitzar el rang</span>
+<span class="s2">function </span><span class="s1">parseRange</span><span class="s3">(</span><span class="s1">rang</span><span class="s3">) {</span>
+
+    <span class="s2">const </span><span class="s3">[</span><span class="s1">full</span><span class="s3">, </span><span class="s1">cel_les</span><span class="s3">] = </span><span class="s1">rang</span><span class="s3">.</span><span class="s1">split</span><span class="s3">(</span><span class="s4">&quot;!&quot;</span><span class="s3">);</span>
+    <span class="s2">const </span><span class="s3">[</span><span class="s1">colStart</span><span class="s3">, </span><span class="s1">rowStart</span><span class="s3">] = </span><span class="s1">cel_les</span><span class="s3">.</span><span class="s1">split</span><span class="s3">(</span><span class="s4">&quot;:&quot;</span><span class="s3">)[</span><span class="s5">0</span><span class="s3">].</span><span class="s1">match</span><span class="s3">(</span><span class="s6">/([A-Z]+)([0-9]+)/</span><span class="s3">).</span><span class="s1">slice</span><span class="s3">(</span><span class="s5">1</span><span class="s3">, </span><span class="s5">3</span><span class="s3">);</span>
+    <span class="s2">const </span><span class="s3">[</span><span class="s1">colEnd</span><span class="s3">, </span><span class="s1">rowEnd</span><span class="s3">] = </span><span class="s1">cel_les</span><span class="s3">.</span><span class="s1">split</span><span class="s3">(</span><span class="s4">&quot;:&quot;</span><span class="s3">)[</span><span class="s5">1</span><span class="s3">].</span><span class="s1">match</span><span class="s3">(</span><span class="s6">/([A-Z]+)([0-9]+)/</span><span class="s3">).</span><span class="s1">slice</span><span class="s3">(</span><span class="s5">1</span><span class="s3">, </span><span class="s5">3</span><span class="s3">);</span>
+
+    <span class="s2">return </span><span class="s3">{</span>
+        <span class="s1">full</span><span class="s3">,</span>
+        <span class="s1">colStartIdx</span><span class="s3">: </span><span class="s1">colStart</span><span class="s3">.</span><span class="s1">charCodeAt</span><span class="s3">(</span><span class="s5">0</span><span class="s3">) - </span><span class="s5">65</span><span class="s3">,</span>
+        <span class="s1">colEndIdx</span><span class="s3">: </span><span class="s1">colEnd</span><span class="s3">.</span><span class="s1">charCodeAt</span><span class="s3">(</span><span class="s5">0</span><span class="s3">) - </span><span class="s5">65</span><span class="s3">,</span>
+        <span class="s1">rowStartIdx</span><span class="s3">: </span><span class="s1">parseInt</span><span class="s3">(</span><span class="s1">rowStart</span><span class="s3">) - </span><span class="s5">1</span><span class="s3">,</span>
+        <span class="s1">rowEndIdx</span><span class="s3">: </span><span class="s1">parseInt</span><span class="s3">(</span><span class="s1">rowEnd</span><span class="s3">)</span>
+    <span class="s3">};</span>
+<span class="s3">}</span>
+
+<span class="s2">function </span><span class="s1">getSheetData</span><span class="s3">(</span><span class="s1">full</span><span class="s3">) {</span>
+
+    <span class="s2">if </span><span class="s3">(</span><span class="s1">full </span><span class="s3">=== </span><span class="s4">&quot;Guardies&quot;</span><span class="s3">) {</span>
+        <span class="s2">return </span><span class="s1">guardies</span><span class="s3">;</span>
+    <span class="s3">} </span><span class="s2">else if </span><span class="s3">(</span><span class="s1">full </span><span class="s3">=== </span><span class="s4">&quot;Tasques&quot;</span><span class="s3">) {</span>
+        <span class="s2">return </span><span class="s1">tasques</span><span class="s3">;</span>
+    <span class="s3">} </span><span class="s2">else </span><span class="s3">{</span>
+        <span class="s1">console</span><span class="s3">.</span><span class="s1">error</span><span class="s3">(</span><span class="s4">&quot;Full desconegut: &quot;</span><span class="s3">, </span><span class="s1">full</span><span class="s3">);</span>
+        <span class="s2">return </span><span class="s3">[];</span>
+    <span class="s3">}</span>
+<span class="s3">}</span>
+
+<span class="s0">// Funcions que simulen el comportament original</span>
+<span class="s0">/*function getDadesFila(rang) { 
+ 
+    const { full, colStartIdx, colEndIdx, rowStartIdx } = parseRange(rang); 
+    const sheetData = getSheetData(full); 
+    return sheetData.slice(rowStartIdx, rowStartIdx + 1).map(row =&gt; row.slice(colStartIdx, colEndIdx + 1))[0]; 
+}*/</span>
+
+<span class="s0">/*function getDadesColumna(rang) { 
+ 
+    const { full, colStartIdx, rowStartIdx, rowEndIdx } = parseRange(rang); 
+    const sheetData = getSheetData(full); 
+    return sheetData.slice(rowStartIdx, rowEndIdx).map(row =&gt; [row[colStartIdx]]); 
+}*/</span>
+
+<span class="s2">function </span><span class="s1">mostrarMapa</span><span class="s3">(){</span>
+    <span class="s1">window</span><span class="s3">.</span><span class="s1">location</span><span class="s3">.</span><span class="s1">href </span><span class="s3">= </span><span class="s4">'mostra_mapa.html'</span>
+<span class="s3">}</span>
+
+<span class="s2">function </span><span class="s1">mostrarCalendari</span><span class="s3">(){</span>
+    <span class="s1">window</span><span class="s3">.</span><span class="s1">location</span><span class="s3">.</span><span class="s1">href </span><span class="s3">= </span><span class="s4">'calendari.html'</span>
+<span class="s3">}</span>
+
+<span class="s2">function </span><span class="s1">mostrarExplicacio</span><span class="s3">(){</span>
+    <span class="s1">window</span><span class="s3">.</span><span class="s1">location</span><span class="s3">.</span><span class="s1">href </span><span class="s3">= </span><span class="s4">'explicacio.html'</span>
+<span class="s3">}</span>
+
+<span class="s2">function </span><span class="s1">mostrarHorari</span><span class="s3">(){</span>
+    <span class="s1">window</span><span class="s3">.</span><span class="s1">location</span><span class="s3">.</span><span class="s1">href </span><span class="s3">= </span><span class="s4">'horari.html'</span>
+<span class="s3">}</span>
+<span class="s2">function </span><span class="s1">tancarSessio</span><span class="s3">(){</span>
+    <span class="s1">window</span><span class="s3">.</span><span class="s1">location</span><span class="s3">.</span><span class="s1">href </span><span class="s3">= </span><span class="s4">'index.html'</span>
+<span class="s3">}</span>
+<span class="s2">function </span><span class="s1">guardia</span><span class="s3">(</span><span class="s1">pati</span><span class="s3">){</span>
+    <span class="s1">console</span><span class="s3">.</span><span class="s1">log</span><span class="s3">(</span><span class="s1">pati</span><span class="s3">)</span>
+    <span class="s1">window</span><span class="s3">.</span><span class="s1">location</span><span class="s3">.</span><span class="s1">href </span><span class="s3">= </span><span class="s4">`calendariGuardies.html?pati=</span><span class="s1">$</span><span class="s3">{</span><span class="s1">pati</span><span class="s3">}</span><span class="s4">`</span>
+<span class="s3">}</span>
+<span class="s1">async </span><span class="s2">function </span><span class="s1">getDadesUsuari</span><span class="s3">(){</span>
+    <span class="s2">const </span><span class="s1">peticioFetch </span><span class="s3">= </span><span class="s2">await </span><span class="s1">fetch</span><span class="s3">(</span><span class="s4">&quot;https://people.googleapis.com/v1/people/me?personFields=names,emailAddresses</span><span class="s2">\n</span><span class="s4">&quot;</span><span class="s3">,{</span>
+        <span class="s1">method</span><span class="s3">: </span><span class="s4">'GET'</span><span class="s3">,</span>
+        <span class="s1">headers</span><span class="s3">: {</span>
+            <span class="s4">'Authorization'</span><span class="s3">: </span><span class="s4">'Bearer '</span><span class="s3">+</span><span class="s1">localStorage</span><span class="s3">.</span><span class="s1">getItem</span><span class="s3">(</span><span class="s4">'token'</span><span class="s3">) </span><span class="s0">//'Afegir 'Bearer '+ localS</span>
+        <span class="s3">}</span>
+    <span class="s3">})</span>
+    <span class="s2">const </span><span class="s1">resultat </span><span class="s3">= </span><span class="s2">await </span><span class="s1">peticioFetch</span><span class="s3">.</span><span class="s1">json</span><span class="s3">();</span>
+    <span class="s1">console</span><span class="s3">.</span><span class="s1">log</span><span class="s3">(</span><span class="s4">`Rebudes dades de l'usuari`</span><span class="s3">)</span>
+    <span class="s1">console</span><span class="s3">.</span><span class="s1">log</span><span class="s3">(</span><span class="s1">resultat</span><span class="s3">)</span>
+    <span class="s2">return </span><span class="s1">resultat</span><span class="s3">;</span>
+<span class="s3">}</span>
+<span class="s2">function </span><span class="s1">mostrarPerfil</span><span class="s3">(){</span>
+    <span class="s1">window</span><span class="s3">.</span><span class="s1">location</span><span class="s3">.</span><span class="s1">href </span><span class="s3">= </span><span class="s4">'perfil.html'</span>
+<span class="s3">}</span></pre>
+</body>
+</html>

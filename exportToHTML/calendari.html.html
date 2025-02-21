@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>calendari.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #d5b778;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bababa;}
+.s3 { color: #6aab73;}
+.s4 { color: #cf8e6d;}
+.s5 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+calendari.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s2">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;html </span><span class="s2">lang</span><span class="s3">=&quot;es&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;head&gt;</span>
+    <span class="s0">&lt;meta </span><span class="s2">charset</span><span class="s3">=&quot;UTF-8&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;title&gt;</span><span class="s1">Calendari guàrdies</span><span class="s0">&lt;/title&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot;  </span><span class="s2">href</span><span class="s3">=&quot;menu.css&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;sheetService.js&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;https://kit.fontawesome.com/f52af23a03.js&quot; </span><span class="s2">crossorigin</span><span class="s3">=&quot;anonymous&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;guardies.css&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;/head&gt;</span>
+<span class="s0">&lt;body&gt;</span>
+    <span class="s0">&lt;h1&gt;</span><span class="s1">Calendari guàrdies</span><span class="s0">&lt;/h1&gt;</span>
+    <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;llistatCalendari&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+
+    <span class="s0">&lt;script&gt;</span>
+    <span class="s4">function </span><span class="s1">printCalendari(items){</span>
+        <span class="s4">let </span><span class="s1">taula = </span><span class="s3">''</span>
+        <span class="s1">taula+=</span><span class="s3">'&lt;table&gt;&lt;tr&gt;&lt;th&gt;Títol&lt;/th&gt;&lt;th&gt;Accions&lt;/th&gt;&lt;/tr&gt;'</span><span class="s1">;</span>
+        <span class="s1">items.forEach((item,index) =&gt;{</span>
+            <span class="s1">taula+=</span><span class="s3">`&lt;tr&gt;&lt;td&gt;</span><span class="s1">${item}</span><span class="s3">&lt;/td&gt;`</span>
+            <span class="s1">taula+=</span><span class="s3">`&lt;td&gt;&lt;button onclick=guardia(</span><span class="s1">${index}</span><span class="s3">)&gt;Veure &lt;i class=&quot;fa-regular fa-eye&quot; style=&quot;color: #60c36c;&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;/td&gt;`</span>
+            <span class="s5">//Com pos que no me surti el mateix nom per tot?</span>
+        <span class="s1">})</span>
+        <span class="s1">taula+=</span><span class="s3">`&lt;/table&gt;`</span>
+
+        <span class="s1">document.getElementById(</span><span class="s3">'llistatCalendari'</span><span class="s1">).innerHTML=taula;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">async </span><span class="s4">function </span><span class="s1">mostrarPati(pati){</span>
+        <span class="s1">console.log(pati)</span>
+        <span class="s4">let </span><span class="s1">dades = await getDadesFila(</span><span class="s3">&quot;Guardies2!B1:K1&quot;</span><span class="s1">);</span>
+        <span class="s5">//let dades = await getDadesColumna(&quot;Guardies2!B2:B13&quot;);</span>
+        <span class="s1">printCalendari(dades)</span>
+    <span class="s1">}</span>
+    <span class="s1">(()=&gt;{</span>
+        <span class="s1">init()</span>
+        <span class="s1">mostrarPati()</span>
+    <span class="s1">})()</span>
+
+
+    <span class="s0">&lt;/script&gt;</span>
+<span class="s0">&lt;/body&gt;</span>
+<span class="s0">&lt;/html&gt;</span></pre>
+</body>
+</html>

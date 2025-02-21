@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>index.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #d5b778;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bababa;}
+.s3 { color: #6aab73;}
+.s4 { color: #7a7e85;}
+.s5 { color: #cf8e6d;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+index.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s2">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;html </span><span class="s2">lang</span><span class="s3">=&quot;ca&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;head&gt;</span>
+    <span class="s0">&lt;meta </span><span class="s2">charset</span><span class="s3">=&quot;UTF-8&quot;</span><span class="s0">&gt;</span>
+    <span class="s4">&lt;!--TODO (Opcionalment posar un nom a l'aplicació i posar un favicon --&gt;</span>
+    <span class="s0">&lt;title&gt;</span><span class="s1">Gestió de Guàrdies</span><span class="s0">&lt;/title&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">type</span><span class="s3">=&quot;text/css&quot; </span><span class="s2">href</span><span class="s3">=&quot;guardies.css&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;sheetService.js&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;https://kit.fontawesome.com/f52af23a03.js&quot; </span><span class="s2">crossorigin</span><span class="s3">=&quot;anonymous&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;guardies.css&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;/head&gt;</span>
+<span class="s0">&lt;body&gt;</span>
+<span class="s0">&lt;div&gt;</span>
+    <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot;baixa.png&quot; </span><span class="s2">width</span><span class="s3">=&quot;100&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;/div&gt;</span>
+<span class="s0">&lt;div&gt;</span>
+<span class="s4">&lt;!--TODO: Heu de personalitzar la pàgina d'inici --&gt;</span>
+    <span class="s0">&lt;h1&gt;</span><span class="s1">Gestió de guàrdies</span><span class="s0">&lt;/h1&gt;</span>
+<span class="s4">&lt;!--TODO: Heu de personalitzar el botó --&gt;</span>
+<span class="s4">&lt;!--    &lt;button onclick=&quot;initGoogle()&quot;&gt;Authorize me&lt;/button&gt;--&gt;</span>
+<span class="s0">&lt;/div&gt;</span>
+<span class="s0">&lt;div&gt; &lt;button </span><span class="s2">onclick</span><span class="s3">=&quot;</span><span class="s1">initGoogle()</span><span class="s3">&quot;</span><span class="s0">&gt; </span><span class="s1">ENTRAR </span><span class="s0">&lt;/button&gt;</span>
+<span class="s0">&lt;/div&gt;</span>
+<span class="s4">&lt;!-- No tocar les dues línies següents--&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;https://accounts.google.com/gsi/client&quot; </span><span class="s2">async defer</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;/script&gt;</span>
+<span class="s0">&lt;script&gt;</span>
+    <span class="s5">function </span><span class="s1">initGoogle() {</span>
+        <span class="s5">const </span><span class="s1">client = google.accounts.oauth2.initTokenClient({</span>
+            <span class="s1">client_id: </span><span class="s3">'111441058742-vgcv84if87m72p3up542kt0vdfu6kesh.apps.googleusercontent.com'</span><span class="s1">,</span>
+            <span class="s1">scope: </span><span class="s3">'https://www.googleapis.com/auth/spreadsheets.readonly ' </span><span class="s1">+</span>
+                <span class="s3">'https://www.googleapis.com/auth/userinfo.profile ' </span><span class="s1">+</span>
+                <span class="s3">'https://www.googleapis.com/auth/userinfo.email'	</span><span class="s1">,            callback: (tokenResponse) =&gt; {</span>
+                <span class="s5">if </span><span class="s1">(tokenResponse &amp;&amp; tokenResponse.access_token) {</span>
+                    <span class="s1">console.log(tokenResponse, tokenResponse.access_token);</span>
+                    <span class="s1">localStorage.setItem(</span><span class="s3">'token'</span><span class="s1">, tokenResponse.access_token);</span>
+                    <span class="s1">window.location.href = </span><span class="s3">'menu.html'</span>
+                <span class="s1">}</span>
+            <span class="s1">},</span>
+        <span class="s1">});</span>
+        <span class="s1">client.requestAccessToken();</span>
+    <span class="s1">}</span>
+<span class="s0">&lt;/script&gt;</span>
+<span class="s0">&lt;/body&gt;</span>
+<span class="s0">&lt;/html&gt;</span></pre>
+</body>
+</html>

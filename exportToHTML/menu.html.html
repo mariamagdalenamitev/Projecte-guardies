@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>menu.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #d5b778;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bababa;}
+.s3 { color: #6aab73;}
+.s4 { color: #7a7e85;}
+.s5 { color: #56a8f5;}
+.s6 { color: #cf8e6d;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+menu.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s2">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;html </span><span class="s2">lang</span><span class="s3">=&quot;ca&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;head&gt;</span>
+  <span class="s0">&lt;meta </span><span class="s2">charset</span><span class="s3">=&quot;UTF-8&quot;</span><span class="s0">&gt;</span>
+  <span class="s4">&lt;!--Revisar css menu i html per mirar q se me posi el title també--&gt;</span>
+  <span class="s0">&lt;title&gt;</span><span class="s1">Menú</span><span class="s0">&lt;/title&gt;</span>
+  <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">type</span><span class="s3">=&quot;text/css&quot; </span><span class="s2">href</span><span class="s3">=&quot;guardies.css&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;sheetService.js&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+  <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;https://kit.fontawesome.com/f52af23a03.js&quot; </span><span class="s2">crossorigin</span><span class="s3">=&quot;anonymous&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+  <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;guardies.css&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;/head&gt;</span>
+<span class="s0">&lt;body&gt;</span>
+<span class="s0">&lt;h1&gt;</span><span class="s1">A que vols accedir?</span><span class="s0">&lt;/h1&gt;&lt;button </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">tancarSessio()</span><span class="s0">&gt;</span><span class="s1">Tancar sessió </span><span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fa-solid fa-arrow-right-from-bracket&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">color</span><span class="s1">: </span><span class="s5">#60c36c</span><span class="s1">;</span><span class="s3">&quot;</span><span class="s0">&gt;&lt;/i&gt;&lt;/button&gt;&lt;button </span><span class="s2">onclick</span><span class="s3">=&quot;</span><span class="s1">mostrarPerfil()</span><span class="s3">&quot;</span><span class="s0">&gt;</span>
+  <span class="s1">Perfil</span>
+  <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fa-solid fa-user&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">color</span><span class="s1">: </span><span class="s5">#60c36c</span><span class="s1">;</span><span class="s3">&quot;</span><span class="s0">&gt;&lt;/i&gt;&lt;/button&gt;</span>
+
+
+<span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;access-menu&quot;</span><span class="s0">&gt;</span>
+<span class="s4">&lt;!--Cercar enllaç i codi NOTION--&gt;</span>
+<span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;icon&quot;</span><span class="s0">&gt;&lt;button </span><span class="s2">onClick</span><span class="s3">=&quot;</span><span class="s1">mostrarMapa()</span><span class="s3">&quot;</span><span class="s0">&gt;</span>
+    <span class="s1">Mapa</span>
+  <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fa-regular fa-map&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">color</span><span class="s1">: </span><span class="s5">#60c36c</span><span class="s1">;</span><span class="s3">&quot;</span><span class="s0">&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;</span>
+
+<span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;icon&quot;</span><span class="s0">&gt;&lt;button </span><span class="s2">onclick</span><span class="s3">=&quot;</span><span class="s1">mostrarCalendari()</span><span class="s3">&quot;</span><span class="s0">&gt;</span>
+    <span class="s1">Calendari</span>
+  <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fa-solid fa-calendar-days&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">color</span><span class="s1">: </span><span class="s5">#60c36c</span><span class="s1">;</span><span class="s3">&quot;</span><span class="s0">&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;</span>
+
+  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;icon&quot;</span><span class="s0">&gt;&lt;button </span><span class="s2">onclick</span><span class="s3">=&quot;</span><span class="s1">mostrarHorari()</span><span class="s3">&quot;</span><span class="s0">&gt;</span>
+    <span class="s1">Horari</span>
+    <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fa-solid fa-calendar-day&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">color</span><span class="s1">: </span><span class="s5">#60c36c</span><span class="s1">;</span><span class="s3">&quot;</span><span class="s0">&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;</span>
+
+<span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;icon&quot;</span><span class="s0">&gt;&lt;button </span><span class="s2">onclick</span><span class="s3">=&quot;</span><span class="s1">mostrarExplicacio()</span><span class="s3">&quot;</span><span class="s0">&gt;</span>
+    <span class="s1">Explicacions</span>
+  <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fa-solid fa-bars&quot; </span><span class="s2">style</span><span class="s3">=&quot;</span><span class="s2">color</span><span class="s1">: </span><span class="s5">#60c36c</span><span class="s1">;</span><span class="s3">&quot;</span><span class="s0">&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;</span>
+<span class="s0">&lt;/div&gt;</span>
+
+<span class="s0">&lt;h2 </span><span class="s2">id</span><span class="s3">=&quot;campCorreu&quot;</span><span class="s0">&gt;&lt;/h2&gt;</span>
+<span class="s0">&lt;h3 </span><span class="s2">id</span><span class="s3">=&quot;campNom&quot;</span><span class="s0">&gt;&lt;/h3&gt;</span>
+<span class="s0">&lt;h3 </span><span class="s2">id</span><span class="s3">=&quot;campLlinatges&quot;</span><span class="s0">&gt;&lt;/h3&gt;</span>
+
+  <span class="s0">&lt;script&gt;</span>
+
+    <span class="s6">function </span><span class="s1">printTasques(items){</span>
+      <span class="s6">let </span><span class="s1">taula = </span><span class="s3">''</span>
+      <span class="s1">taula+=</span><span class="s3">'&lt;table&gt;&lt;tr&gt;&lt;th&gt;Grup&lt;/th&gt;&lt;th&gt;Tasca&lt;/th&gt;&lt;/tr&gt;'</span><span class="s1">;</span>
+<span class="s4">//Me dona error en la lína 39 i no entenc pq ja que abans no m'ho feia</span>
+      <span class="s1">items.forEach(item =&gt;{</span>
+        <span class="s1">taula+=</span><span class="s3">`&lt;tr&gt;&lt;td&gt;</span><span class="s1">${item}</span><span class="s3">&lt;/td&gt;&lt;/tr&gt;`</span>
+        <span class="s4">/* taula+=`&lt;td&gt;&lt;a href=\&quot;detallGuardia.html?id=${item}\&quot;&gt;Veure&lt;/a&gt;&lt;/td&gt;` */</span>
+      <span class="s1">})</span>
+      <span class="s1">taula+=</span><span class="s3">`&lt;/table&gt;`</span>
+      <span class="s1">document.getElementById(</span><span class="s3">'llistatResultatTasques'</span><span class="s1">).innerHTML=taula;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">async </span><span class="s6">function </span><span class="s1">init() {</span>
+      <span class="s6">let </span><span class="s1">dades = getDadesColumna(</span><span class="s3">&quot;Tasques!B1:B12&quot;</span><span class="s1">);</span>
+      <span class="s1">printTasques(dades)</span>
+    <span class="s1">}</span>
+    <span class="s1">(() =&gt; {</span>
+      <span class="s1">init()</span>
+    <span class="s1">})()</span>
+
+
+
+
+    <span class="s1">(()=&gt;{</span>
+      <span class="s1">init()</span>
+    <span class="s1">})()</span>
+
+  <span class="s0">&lt;/script&gt;</span>
+
+  <span class="s4">&lt;!--&lt;script&gt; 
+    function printCalendari(items){ 
+      let taula = '' 
+      taula+='&lt;table&gt;&lt;tr&gt;&lt;th&gt;Grup&lt;/th&gt;&lt;th&gt;Calendari&lt;/th&gt;&lt;/tr&gt;'; 
+ 
+      items.forEach(item =&gt;{ 
+        taula+=`&lt;tr&gt;&lt;td&gt;${item}&lt;/td&gt;` 
+        /* taula+=`&lt;td&gt;&lt;a href=\&quot;detallGuardia.html?id=${item}\&quot;&gt;Veure&lt;/a&gt;&lt;/td&gt;` */ 
+      }) 
+      taula+=`&lt;/table&gt;` 
+ 
+      document.getElementById('llistatResultatTasques').innerHTML=taula; 
+    } 
+ 
+    async function init() { 
+      let dades = getDadesColumna(&quot;Tasques!B1:B12&quot;); 
+      printTasques(dades) 
+    } 
+    (() =&gt; { 
+      init() 
+    })() 
+  &lt;/script&gt;--&gt;</span>
+
+<span class="s0">&lt;/body&gt;</span>
+<span class="s0">&lt;/html&gt;</span></pre>
+</body>
+</html>
