@@ -9,38 +9,40 @@
     <link rel="stylesheet" href="guardies.css">
 </head>
 <body>
-<div id="llistatGuardies"> </div>
-
+<div id="llistatGuardies"></div>
 <script>
 
     let pati
-
     async function init(){
         const urlParams = new URLSearchParams(window.location.search)
         pati = urlParams.get('pati')
         console.log('Pati: '+ pati)
     }
-
-    async function mostrarGuardia(){
-        let dades = await getDadesFila("Guardies2!B1:K13");
-        //let dades = await getDadesColumna("Guardies2!B2:B13");
-        //Crear taula amb for each
-        document.getElementById("llistatGuardies").innerHTML = dades[pati]
-
-        let taula = ' '
-//Anar provant de fer sa taula i canviar per que me funcioni.
-        items.forEach(item =>{
-            taula+=`<tr><td>${item}</td>`
-            taula+=`<td><a href=\"detallGuardia.html?id=${item}\">Veure</a></td>`
-        })
-        taula+=`</table>`
-
-        document.getElementById('llistatResultats').innerHTML=taula;
-   }
+function printGuardies(){
+    let taula = ' '
+    dades.forEach(item =>{
+        taula= `<table><tr><th>${item[0]}</th></tr>`
+        taula+= `<tr><td>${item[pati]}</td></tr>`
+    })
+    taula+=`</table>`
+    document.getElementById('llistatGuardies').innerHTML=taula
     (()=>{
         init()
         mostrarGuardia()
     })()
+}
+    async function mostrarGuardia() {
+        let dades
+        dades = await getDadesFila("Guardies2!B1:K13");
+        console.log(dades)
+        document.getElementById("llistatGuardies").innerHTML = dades[pati]
+    }
+
+/*    let taula
+    dades.forEach(item =>{
+        taula=`<table><tr><td>${item[1]}</td></tr>`
+    })
+    taula+=`</table>`*/
 </script>
 
 </body>

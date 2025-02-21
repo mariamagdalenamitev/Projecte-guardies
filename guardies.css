@@ -13,12 +13,36 @@ h1 {
     display: block;
     font-size: 2em;
     margin: 5px 50px;
-/*    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;*/
+    padding: 15px;
     font-weight: bold;
     unicode-bidi: isolate;
+    justify-content: center;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin: 5px 50px;
+    padding: 5px;
+    /*    margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;*/
+    font-weight: bold;
+    unicode-bidi: isolate;
+    justify-content: center;
+}
+h3 {
+    display: block;
+    font-size: 1em;
+    margin: 5px 50px;
+    padding: 5px;
+    /*    margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;*/
+    font-weight: bold;
+    unicode-bidi: isolate;
+    justify-content: center;
 }
 
 /* Darker background on mouse-over */
@@ -26,12 +50,11 @@ button:hover {
     background-color: #577957;
 }
 
-i{
+i {
     cursor: pointer;
     padding-left: 0px;
     color: white;
 }
-
 /* Estilos generales para el cuerpo */
 body {
     font-family: Arial, sans-serif;
@@ -60,108 +83,3 @@ div {
     color: #000;
     text-align: center;
 }
-
-/* Responsive para pantallas pequeñas */
-@media (max-width: 600px) {
-    div {
-        width: 200px;
-        height: 400px;
-        padding: 15px;
-    }
-
-    img {
-        width: 80px;
-    }
-
-    .title {
-        font-size: 16px;
-    }
-}
-
-/*!* Estilos para el calendario (manteniendo el anterior) *!
-.weekdays {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.weekdays div {
-    width: 30px;
-    text-align: center;
-}
-
-.dates {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.dates div {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color: #888;
-}
-
-.dates .selected {
-    background-color: #000;
-    color: #fff;
-    font-weight: bold;
-}
-
-.patio {
-    margin-bottom: 20px;
-}
-
-.patio-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.zone {
-    margin-left: 20px;
-    margin-bottom: 3px;
-}
-
-.header-icons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.header-icons .icon {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-}
-
-.header-icons .icon:hover {
-    opacity: 0.7;
-}
-
-.dates div:hover {
-    background-color: #e0e0e0;
-    cursor: pointer;
-}
-
-.dates .disabled {
-    color: #ccc;
-    pointer-events: none;
-}
-
-@media (max-width: 600px) {
-    .weekdays div, .dates div {
-        width: 25px;
-        height: 25px;
-    }
-
-    .patio-title {
-        font-size: 18px;
-    }
-}*/

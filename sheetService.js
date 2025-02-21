@@ -132,3 +132,18 @@ function guardia(pati){
     console.log(pati)
     window.location.href = `calendariGuardies.html?pati=${pati}`
 }
+async function getDadesUsuari(){
+    const peticioFetch = await fetch("https://people.googleapis.com/v1/people/me?personFields=names,emailAddresses\n",{
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer '+localStorage.getItem('token') //'Afegir 'Bearer '+ localS
+        }
+    })
+    const resultat = await peticioFetch.json();
+    console.log(`Rebudes dades de l'usuari`)
+    console.log(resultat)
+    return resultat;
+}
+function mostrarPerfil(){
+    window.location.href = 'perfil.html'
+}

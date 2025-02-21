@@ -8,23 +8,27 @@
     <link rel="stylesheet" href="guardies.css">
 </head>
 <body>
-    <h1>Explicació guàrdies</h1>
+    <h1>Explicació guàrdies</h1><button onclick="mostrarPerfil()">
+        Perfil
+        <i class="fa-solid fa-user" style="color: #60c36c;"></i></button>
 
     <div id="llistaResultatExplicacions"></div>
 
     <script>
-// Demanar que m'ho expliqui pq no me funciona i on ho he d'enllaçar; al bptó?
-    async function mostrarExplicacions(explicacio){
-        console.log(explicacio)
+//Arreglar taula
+    async function mostrarExplicacions(){
         let dades
         console.log('Possibles dubtes');
-        dades = await getDadesColumna("dubtes!A1:A5");
+        dades = await getDadesColumna("dubtes!A1:B5");
         console.log(dades)
-        document.getElementById('llistaResultatExplicacions').innerHTML = dades
+        let taula = `<table><tr><th>Pregunta</th><th>Resposta</th></tr>`
+        dades.forEach(item =>{
+            taula+=`<tr><td>${item[0]}</td><td>${item[1]}</td></tr>`
+        })
+        taula+=`</table>`
+        document.getElementById('llistaResultatExplicacions').innerHTML = taula
     }
-
     (() => {
-        init()
         mostrarExplicacions()
     })()
 </script >

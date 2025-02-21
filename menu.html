@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <!--Revisar css menu i html per mirar q se me posi el title també-->
   <title>Menú</title>
-  <link rel="stylesheet" type="text/css" href="menu.css">
+  <link rel="stylesheet" type="text/css" href="guardies.css">
   <script src="sheetService.js"></script>
   <script src="https://kit.fontawesome.com/f52af23a03.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="guardies.css">
 </head>
 <body>
-<h1>A que vols accedir?</h1><button onclick=tancarSessio()>Tancar sessió <i class="fa-solid fa-arrow-right-from-bracket" style="color: #60c36c;"></i></button>
+<h1>A que vols accedir?</h1><button onclick=tancarSessio()>Tancar sessió <i class="fa-solid fa-arrow-right-from-bracket" style="color: #60c36c;"></i></button><button onclick="mostrarPerfil()">
+  Perfil
+  <i class="fa-solid fa-user" style="color: #60c36c;"></i></button>
+
 
 <div class="access-menu">
 <!--Cercar enllaç i codi NOTION-->
@@ -26,10 +29,14 @@
     Horari
     <i class="fa-solid fa-calendar-day" style="color: #60c36c;"></i></button></div>
 
-<div class="icon"><button onclick="mostrarExplicacio(); mostrarExplicacions(explicacio)">
+<div class="icon"><button onclick="mostrarExplicacio()">
     Explicacions
   <i class="fa-solid fa-bars" style="color: #60c36c;"></i></button></div>
 </div>
+
+<h2 id="campCorreu"></h2>
+<h3 id="campNom"></h3>
+<h3 id="campLlinatges"></h3>
 
   <script>
 
@@ -52,6 +59,14 @@
     (() => {
       init()
     })()
+
+
+
+
+    (()=>{
+      init()
+    })()
+
   </script>
 
   <!--<script>
@@ -76,5 +91,6 @@
       init()
     })()
   </script>-->
+
 </body>
 </html>

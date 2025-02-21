@@ -25,7 +25,6 @@
 
         document.getElementById('llistatCalendari').innerHTML=taula;
     }
-    //TODO Arreglar per a que quan pitji el botó me vagi al document
 
     async function mostrarPati(pati){
         console.log(pati)
@@ -34,6 +33,7 @@
         printCalendari(dades)
     }
     (()=>{
+        init()
         mostrarPati()
     })()
 
@@ -41,5 +41,3 @@
     </script>
 </body>
 </html>
-
-<!--Vull que me surti de sa fila B1 a K1 al pitjar al botó, però que quan el pitji me surti de B2 a B13--¡>

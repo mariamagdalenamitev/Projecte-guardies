@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <!--Revisar css menu i html per mirar q se me posi el title també-->
+  <title>Perfil</title>
+  <link rel="stylesheet" type="text/css" href="menu.css">
+  <script src="sheetService.js"></script>
+  <script src="https://kit.fontawesome.com/f52af23a03.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="guardies.css">
+</head>
+<body>
+<h1>El meu perfil:</h1>
+<h2 id="campNom"></h2>
+<h3 id="campCorreu"></h3>
+<h2 id="campLlinatges"></h2>
+
+<script>
+
+  let usuari
+
+  async function init(){
+    usuari= await getDadesUsuari();
+
+    document.getElementById('campNom').innerHTML=usuari.names[0].displayName;
+    document.getElementById('campCorreu').innerHTML=usuari.emailAddresses[0].value
+  }
+  (()=>{
+    init()
+  })()
+</script>
+</body>
+</html>
