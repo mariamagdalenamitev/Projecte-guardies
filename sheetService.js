@@ -122,9 +122,6 @@ function mostrarExplicacio(){
     window.location.href = 'explicacio.html'
 }
 
-function mostrarHorari(){
-    window.location.href = 'horari.html'
-}
 function tancarSessio(){
     window.location.href = 'index.html'
 }

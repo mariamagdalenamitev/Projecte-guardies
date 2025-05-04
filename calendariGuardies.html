@@ -13,36 +13,46 @@
 <script>
 
     let pati
-    async function init(){
+   async function init(){
         const urlParams = new URLSearchParams(window.location.search)
         pati = urlParams.get('pati')
         console.log('Pati: '+ pati)
     }
-function printGuardies(){
-    let taula = ' '
-    dades.forEach(item =>{
-        taula= `<table><tr><th>${item[0]}</th></tr>`
-        taula+= `<tr><td>${item[pati]}</td></tr>`
-    })
-    taula+=`</table>`
-    document.getElementById('llistatGuardies').innerHTML=taula
+
+    function printGuardies(items){
+        let taula = ' '
+        items.forEach(item =>{
+            taula= `<table><tr><th>${items[0]}</th></tr>`
+            taula+= `<tr><td>${item}</td></tr>`
+            console.log(item)
+
+        })
+        taula+=`</table>`
+        document.getElementById('llistatGuardies').innerHTML=taula
+    }
+
+    async function mostrarGuardia(){
+        let dades;
+        const urlParams = new URLSearchParams(window.location.search)
+        const numPati = urlParams.get('pati');
+        console.log(numPati)
+        dades= await getDadesFila("Guardies2!B1:K13");
+        console.log(dades)
+        printGuardies(dades[numPati])
+    }
     (()=>{
-        init()
         mostrarGuardia()
     })()
-}
-    async function mostrarGuardia() {
+    /*async function mostrarGuardia() {
         let dades
         dades = await getDadesFila("Guardies2!B1:K13");
         console.log(dades)
         document.getElementById("llistatGuardies").innerHTML = dades[pati]
     }
-
-/*    let taula
-    dades.forEach(item =>{
-        taula=`<table><tr><td>${item[1]}</td></tr>`
-    })
-    taula+=`</table>`*/
+    (() => {
+        init()
+        printGuardies()
+    })()*/
 </script>
 
 </body>

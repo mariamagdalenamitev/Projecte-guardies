@@ -25,9 +25,6 @@
     Calendari
   <i class="fa-solid fa-calendar-days" style="color: #60c36c;"></i></button></div>
 
-  <div class="icon"><button onclick="mostrarHorari()">
-    Horari
-    <i class="fa-solid fa-calendar-day" style="color: #60c36c;"></i></button></div>
 
 <div class="icon"><button onclick="mostrarExplicacio()">
     Explicacions
@@ -39,11 +36,10 @@
 <h3 id="campLlinatges"></h3>
 
   <script>
-
     function printTasques(items){
       let taula = ''
       taula+='<table><tr><th>Grup</th><th>Tasca</th></tr>';
-//Me dona error en la lína 39 i no entenc pq ja que abans no m'ho feia
+      //Me dona error en la lína 39 i no entenc pq ja que abans no m'ho feia
       items.forEach(item =>{
         taula+=`<tr><td>${item}</td></tr>`
         /* taula+=`<td><a href=\"detallGuardia.html?id=${item}\">Veure</a></td>` */
@@ -56,41 +52,10 @@
       let dades = getDadesColumna("Tasques!B1:B12");
       printTasques(dades)
     }
-    (() => {
-      init()
-    })()
-
-
-
 
     (()=>{
       init()
     })()
-
   </script>
-
-  <!--<script>
-    function printCalendari(items){
-      let taula = ''
-      taula+='<table><tr><th>Grup</th><th>Calendari</th></tr>';
-
-      items.forEach(item =>{
-        taula+=`<tr><td>${item}</td>`
-        /* taula+=`<td><a href=\"detallGuardia.html?id=${item}\">Veure</a></td>` */
-      })
-      taula+=`</table>`
-
-      document.getElementById('llistatResultatTasques').innerHTML=taula;
-    }
-
-    async function init() {
-      let dades = getDadesColumna("Tasques!B1:B12");
-      printTasques(dades)
-    }
-    (() => {
-      init()
-    })()
-  </script>-->
-
 </body>
 </html>
