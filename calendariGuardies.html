@@ -23,7 +23,7 @@
         let taula = ' '
         items.forEach(item =>{
             taula= `<table><tr><th>${items[0]}</th></tr>`
-            taula+= `<tr><td>${item}</td></tr>`
+            taula+= `<tr><td>${items.slice(1)}</td></tr>`
             console.log(item)
 
         })
